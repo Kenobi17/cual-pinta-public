@@ -5,7 +5,7 @@ const router = require("express").Router(),
 router.get("/", async (req, res) => {
   try {
     const breweries = await db.query(
-      "SELECT * FROM breweries b LEFT JOIN (SELECT brewery_id, COUNT(*) rating_qty, TRUNC(AVG(rating), 1) AS rating_avg FROM reviews GROUP BY brewery_id) r ON b.brewery_id = r.brewery_id ORDER BY b.brewery_id;"
+      "SELECT * FROM breweries b LEFT JOIN (SELECT brewery_id AS brewery, COUNT(*), TRUNC(AVG(rating), 1) AS rating_avg FROM reviews GROUP BY brewery_id) r ON b.brewery_id = r.brewery ORDER BY b.brewery_id;"
     );
     res.status(200).json({
       status: "success",
