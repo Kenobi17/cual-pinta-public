@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
 });
 //Authentication Route
 app.use("/authentication", require("./routes/userAuthenticationRoutes"));
-
+app.use("/api/v1/cervecerias", require("./routes/breweriesRoutes"));
 //-----APP LISTEN-----
 app.listen(port, () => {
   console.log(`Server up at http://localhost:${port}`);
