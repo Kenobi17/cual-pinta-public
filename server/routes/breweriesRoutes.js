@@ -17,13 +17,14 @@ router.get("/", async (req, res) => {
     res.status(500).send("Error del servidor");
   }
 });
-//GET ONE BREWERIE ROUTE
-router.get("/:slug", async (req, res) => {
+//GET ONE BREWERY ROUTE
+router.get("/:id", async (req, res) => {
   try {
-    const slug = req.params.slug;
-    const brewery = await db.query("SELECT * FROM breweries WHERE slug = $1", [
-      slug,
-    ]);
+    const id = req.params.id;
+    const brewery = await db.query(
+      "SELECT * FROM breweries WHERE brewery_id = $1",
+      [id]
+    );
     res.status(200).json({
       status: "success",
       data: {
