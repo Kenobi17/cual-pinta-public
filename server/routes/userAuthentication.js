@@ -1,10 +1,11 @@
 const router = require("express").Router(),
   tokenGenerator = require("../utils/tokenGenerator"),
+  middleware = require("../middleware/middleware"),
   db = require("../database/db"),
   bcrypt = require("bcrypt");
 
 //REGISTER ROUTE
-router.post("/register", async (req, res) => {
+router.post("/register", middleware.isValidInfo, async (req, res) => {
   try {
     const { firstName, lastName, email, password } = req.body;
     const user = await db.query("SELECT * FROM users WHERE email = $1", [
@@ -29,7 +30,7 @@ router.post("/register", async (req, res) => {
   }
 });
 //LOGIN ROUTE
-router.post("/login", async (req, res) => {
+router.post("/login", middleware.isValidInfo, async (req, res) => {
   try {
     const { email, password } = req.body;
     const user = await db.query("SELECT * FROM users WHERE email = $1", [
@@ -50,7 +51,7 @@ router.post("/login", async (req, res) => {
   }
 });
 //VERIFY ROUTE
-router.get("/verify", async (req, res) => {
+router.get("/verify", middleware.isAuthorized, async (req, res) => {
   try {
     res.json(true);
   } catch (error) {
