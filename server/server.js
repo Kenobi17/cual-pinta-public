@@ -13,7 +13,7 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 //Authentication Route
-app.use("/authentication", require("./routes/userAuthentication"));
+app.use("/authentication", require("./routes/userAuthenticationRoutes"));
 
 //-----APP LISTEN-----
 app.listen(port, () => {
