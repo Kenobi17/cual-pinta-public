@@ -4,7 +4,9 @@ const router = require("express").Router(),
 //GET ALL BREWERIES ROUTE
 router.get("/", async (req, res) => {
   try {
-    const breweries = await db.query("SELECT * FROM breweries");
+    const breweries = await db.query(
+      "SELECT * FROM breweries b LEFT JOIN (SELECT brewery_id, COUNT(*) rating_qty, TRUNC(AVG(rating), 1) AS rating_avg FROM reviews GROUP BY brewery_id) r ON b.brewery_id = r.brewery_id ORDER BY b.brewery_id;"
+    );
     res.status(200).json({
       status: "success",
       cantidad: breweries.rowCount,
@@ -25,10 +27,15 @@ router.get("/:id", async (req, res) => {
       "SELECT * FROM breweries WHERE brewery_id = $1",
       [id]
     );
+    const reviews = await db.query(
+      "SELECT * FROM reviews WHERE brewery_id = $1",
+      [id]
+    );
     res.status(200).json({
       status: "success",
       data: {
         cerveceria: brewery.rows[0],
+        reseñas: reviews.rows,
       },
     });
   } catch (error) {
