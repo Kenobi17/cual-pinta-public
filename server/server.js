@@ -9,12 +9,11 @@ app.use(express.json());
 app.use(cors());
 
 //-----ROUTES-----
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
 //Authentication Route
 app.use("/authentication", require("./routes/userAuthenticationRoutes"));
+//Breweries Route
 app.use("/api/v1/cervecerias", require("./routes/breweriesRoutes"));
+//Reviews Route
 app.use("/api/v1/reviews", require("./routes/reviewsRoutes"));
 //-----APP LISTEN-----
 app.listen(port, () => {
