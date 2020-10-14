@@ -18,6 +18,9 @@ const useStyles = makeStyles({
     fontWeight: "bold",
     color: "default",
   },
+  content: {
+    backgroundColor: "#efefef",
+  },
 });
 const CardCerveceria = (props) => {
   let history = useHistory();
@@ -28,30 +31,30 @@ const CardCerveceria = (props) => {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} variant="outlined">
       <CardActionArea onClick={(e) => handleClick(props.slug)}>
         <CardMedia
           className={classes.media}
           image={props.image}
           title={props.name}
         />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h5">
+        <CardContent className={classes.content}>
+          <Typography gutterBottom variant="h5" component="h4">
             {props.name}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="h4">
+          <Typography variant="body2" color="textSecondary" component="p">
             <span className={classes.bold}>Zona: </span>
             {props.zone}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="h4">
+          <Typography variant="body2" color="textSecondary" component="p">
             <span className={classes.bold}>Dirección: </span>
             {props.address}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="h4">
+          <Typography variant="body2" color="textSecondary" component="p">
             <span className={classes.bold}>Happy Hour: </span>
             {props.happy_hour}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="h4">
+          <Typography variant="body2" color="textSecondary" component="p">
             Rating stars
           </Typography>
         </CardContent>
