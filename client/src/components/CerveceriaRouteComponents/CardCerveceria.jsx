@@ -6,6 +6,7 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
+import StarRating from "../StarRating";
 
 const useStyles = makeStyles({
   root: {
@@ -60,7 +61,17 @@ const CardCerveceria = (props) => {
             {props.happy_hour}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Rating stars
+            {!props.reviews ? (
+              <span className={classes.bold}>0 reseñas</span>
+            ) : (
+              <>
+                <span className={classes.bold}>{props.reviews} reseñas</span> (
+                {props.rating_avg})
+                <br />
+                <StarRating rating={props.rating_avg} />
+                <br />
+              </>
+            )}
           </Typography>
         </CardContent>
       </CardActionArea>
