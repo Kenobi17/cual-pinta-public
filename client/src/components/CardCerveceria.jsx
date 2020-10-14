@@ -10,6 +10,8 @@ import Typography from "@material-ui/core/Typography";
 const useStyles = makeStyles({
   root: {
     maxWidth: 250,
+    margin: "auto",
+    height: "100%",
   },
   media: {
     height: 250,
@@ -20,6 +22,7 @@ const useStyles = makeStyles({
   },
   content: {
     backgroundColor: "#efefef",
+    height: "100%",
   },
 });
 const CardCerveceria = (props) => {
@@ -32,7 +35,9 @@ const CardCerveceria = (props) => {
 
   return (
     <Card className={classes.root} variant="outlined">
-      <CardActionArea onClick={(e) => handleClick(props.slug)}>
+      <CardActionArea
+        style={{ height: "100%" }}
+        onClick={(e) => handleClick(props.slug)}>
         <CardMedia
           className={classes.media}
           image={props.image}
