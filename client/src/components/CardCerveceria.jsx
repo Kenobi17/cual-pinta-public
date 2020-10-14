@@ -9,10 +9,10 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 320,
+    maxWidth: 250,
   },
   media: {
-    height: 320,
+    height: 250,
   },
   bold: {
     fontWeight: "bold",
