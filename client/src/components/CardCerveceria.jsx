@@ -3,11 +3,9 @@ import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
-import CircularProgress from "@material-ui/core/CircularProgress";
 
 const useStyles = makeStyles({
   root: {
@@ -15,13 +13,6 @@ const useStyles = makeStyles({
   },
   media: {
     height: 320,
-  },
-  progress: {
-    display: "flex",
-    maxWidth: 320,
-    height: 320,
-    alignItems: "center",
-    justifyContent: "center",
   },
   bold: {
     fontWeight: "bold",
@@ -39,17 +30,11 @@ const CardCerveceria = (props) => {
   return (
     <Card className={classes.root}>
       <CardActionArea onClick={(e) => handleClick(props.slug)}>
-        {props.image ? (
-          <CardMedia
-            className={classes.media}
-            image={props.image}
-            title={props.name}
-          />
-        ) : (
-          <div className={classes.progress}>
-            <CircularProgress />
-          </div>
-        )}
+        <CardMedia
+          className={classes.media}
+          image={props.image}
+          title={props.name}
+        />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h5">
             {props.name}
