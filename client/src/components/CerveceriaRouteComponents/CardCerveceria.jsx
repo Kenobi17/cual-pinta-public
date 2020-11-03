@@ -13,9 +13,11 @@ const useStyles = makeStyles({
     maxWidth: 250,
     margin: "auto",
     height: "100%",
+    border: "none",
+    boxShadow: "none",
   },
   media: {
-    height: 250,
+    height: 175,
   },
   bold: {
     fontWeight: "bold",
@@ -35,7 +37,7 @@ const CardCerveceria = (props) => {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root} variant="outlined">
+    <Card className={classes.root}>
       <CardActionArea
         style={{ height: "100%" }}
         onClick={(e) => handleClick(props.slug)}>
@@ -45,31 +47,22 @@ const CardCerveceria = (props) => {
           title={props.name}
         />
         <CardContent className={classes.content}>
-          <Typography gutterBottom variant="h5" component="h4">
-            {props.name}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            <span className={classes.bold}>Zona: </span>
-            {props.zone}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            <span className={classes.bold}>Dirección: </span>
-            {props.address}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            <span className={classes.bold}>Happy Hour: </span>
-            {props.happy_hour}
+          <Typography
+            className={classes.bold}
+            gutterBottom
+            variant="body2"
+            component="h4">
+            {props.name} <br />
+            <span style={{ fontWeight: "400" }}>
+              {props.address} - {props.zone}
+            </span>
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             {!props.reviews ? (
-              <span className={classes.bold}>0 reseñas</span>
+              <span className={classes.bold}>Sin reseñas</span>
             ) : (
               <>
-                <span className={classes.bold}>{props.reviews} reseñas</span> (
-                {props.rating_avg})
-                <br />
                 <StarRating rating={props.rating_avg} />
-                <br />
               </>
             )}
           </Typography>
