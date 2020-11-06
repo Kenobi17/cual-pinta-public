@@ -25,8 +25,8 @@ const CerveceriasRoute = () => {
         </Typography>
       </Grid>
       <Grid container item xs={10} spacing={1} justify="space-evenly">
-        <Grid style={{ backgroundColor: "red" }} item xs={12} sm={4}></Grid>
-        <Grid item container xs={12} sm={8}>
+        <Grid style={{ backgroundColor: "#52575d" }} item xs={12} sm={4}></Grid>
+        <Grid item container xs={12} sm={8} spacing={1}>
           {cervecerias.map((cerveceria) => {
             return (
               <Grid

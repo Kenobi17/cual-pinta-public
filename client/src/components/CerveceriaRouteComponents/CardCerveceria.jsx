@@ -24,8 +24,9 @@ const useStyles = makeStyles({
     color: "default",
   },
   content: {
-    backgroundColor: "#efefef",
+    backgroundColor: "#52575d",
     height: "100%",
+    color: "#fddb3a",
   },
 });
 const CardCerveceria = (props) => {
@@ -57,7 +58,7 @@ const CardCerveceria = (props) => {
               {props.address} - {props.zone}
             </span>
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography variant="body2" component="p">
             {!props.reviews ? (
               <span className={classes.bold}>Sin reseñas</span>
             ) : (
