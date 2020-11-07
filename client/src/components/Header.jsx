@@ -15,13 +15,17 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
-    color: "#fddb3a",
+    color: "#ffe05d",
   },
   title: {
     flexGrow: 1,
   },
   logo: {
     maxWidth: 200,
+  },
+  appbar: {
+    backgroundColor: "transparent",
+    boxShadow: "none",
   },
 }));
 
@@ -40,7 +44,7 @@ const Header = () => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" style={{ backgroundColor: "#f6f4e6" }}>
+      <AppBar position="static" className={classes.appbar}>
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
             <img
@@ -72,8 +76,8 @@ const Header = () => {
               }}
               open={open}
               onClose={handleClose}>
-              <MenuItem onClick={handleClose}>Inicio</MenuItem>
-              <MenuItem onClick={handleClose}>Acerca De</MenuItem>
+              <MenuItem onClick={handleClose}>Cervecerias</MenuItem>
+              <MenuItem onClick={handleClose}>Iniciar Sesión</MenuItem>
               <MenuItem onClick={handleClose}>Contacto</MenuItem>
             </Menu>
           </div>
