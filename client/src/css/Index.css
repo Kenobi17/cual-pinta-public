@@ -13,8 +13,8 @@
   width: 100%;
 }
 
-.MuiToolbar-root {
-  margin-bottom: 2em;
+.mainContainer {
+  margin-top: 6em;
 }
 
 .MuiButton-label {

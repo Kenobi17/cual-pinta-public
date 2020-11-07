@@ -26,7 +26,7 @@ const IndexRoute = () => {
   return (
     <div className="IndexRoute">
       <Header />
-      <Grid justify="center" container>
+      <Grid justify="center" container className="mainContainer">
         <Grid item container justify="center" xs={10} sm={6} md={3}>
           <img id="IndexHeaderLogo" src={IndexHeaderLogo} alt="¿Cuál Pinta?" />
         </Grid>
