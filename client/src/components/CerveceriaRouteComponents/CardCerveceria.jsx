@@ -13,8 +13,7 @@ const useStyles = makeStyles({
     maxWidth: 250,
     margin: "auto",
     height: "100%",
-    border: "none",
-    boxShadow: "none",
+    border: "1px #F6C90E solid",
   },
   media: {
     height: 175,
@@ -24,9 +23,10 @@ const useStyles = makeStyles({
     color: "default",
   },
   content: {
-    backgroundColor: "#52575d",
+    backgroundColor: "#000",
     height: "100%",
-    color: "#fddb3a",
+    color: "#F6C90E",
+    borderTop: "1px #F6C90E solid",
   },
 });
 const CardCerveceria = (props) => {
