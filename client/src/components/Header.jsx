@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -13,9 +13,15 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
-  menuButton: {
+  menuButtonTransparent: {
     marginRight: theme.spacing(2),
     color: "#ffe05d",
+    transition: "color 500ms",
+  },
+  menuButtonSolid: {
+    marginRight: theme.spacing(2),
+    color: "#000000",
+    transition: "color 500ms",
   },
   title: {
     flexGrow: 1,
@@ -23,16 +29,47 @@ const useStyles = makeStyles((theme) => ({
   logo: {
     maxWidth: 200,
   },
-  appbar: {
+  appBarTransparent: {
     backgroundColor: "transparent",
     boxShadow: "none",
+    transition: "background-color 500ms",
+    button: {
+      marginRight: theme.spacing(2),
+      color: "#ffe05d",
+    },
+  },
+  appBarSolid: {
+    backgroundColor: "#F6C90E",
+    transition: "background-color 500ms",
   },
 }));
 
 const Header = () => {
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
+  const [navStyle, setNavStyle] = useState("appBarTransparent");
+  const navRef = React.useRef();
+  navRef.current = navStyle;
+  const [buttonStyle, setButtonStyle] = useState("menuButtonTransparent");
+  const buttonRef = React.useRef();
+  buttonRef.current = buttonStyle;
+  useEffect(() => {
+    const handleScroll = () => {
+      const show = window.scrollY > 160;
+      if (show) {
+        setNavStyle("appBarSolid");
+        setButtonStyle("menuButtonSolid");
+      } else {
+        setNavStyle("appBarTransparent");
+        setButtonStyle("menuButtonTransparent");
+      }
+    };
+    document.addEventListener("scroll", handleScroll);
+    return () => {
+      document.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -44,7 +81,7 @@ const Header = () => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="fixed" className={classes.appbar}>
+      <AppBar position="fixed" className={classes[navRef.current]}>
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
             <img
@@ -56,7 +93,7 @@ const Header = () => {
           <div>
             <IconButton
               edge="start"
-              className={classes.menuButton}
+              className={classes[buttonRef.current]}
               color="inherit"
               aria-label="menu"
               onClick={handleMenu}>
