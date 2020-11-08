@@ -10,7 +10,7 @@ const StarRating = ({ rating }) => {
         <StarIcon
           key={i}
           style={{
-            color: "#ffce76",
+            color: "#F6C90E",
             verticalAlign: "bottom",
             fontSize: "1.5em",
           }}
@@ -21,7 +21,7 @@ const StarRating = ({ rating }) => {
         <StarHalfIcon
           key={i}
           style={{
-            color: "#ffce76",
+            color: "#F6C90E",
             verticalAlign: "bottom",
             fontSize: "1.5em",
           }}
@@ -32,7 +32,7 @@ const StarRating = ({ rating }) => {
         <StarBorderIcon
           key={i}
           style={{
-            color: "#ffce76",
+            color: "#F6C90E",
             verticalAlign: "bottom",
             fontSize: "1.5em",
           }}
