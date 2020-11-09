@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButtonTransparent: {
     marginRight: theme.spacing(2),
-    color: "#ffe05d",
+    color: "#f6c90e",
     transition: "color 500ms",
   },
   menuButtonSolid: {
@@ -35,11 +35,11 @@ const useStyles = makeStyles((theme) => ({
     transition: "background-color 500ms",
     button: {
       marginRight: theme.spacing(2),
-      color: "#ffe05d",
+      color: "#f6c90e",
     },
   },
   appBarSolid: {
-    backgroundColor: "#F6C90E",
+    backgroundColor: "#f6c90e",
     transition: "background-color 500ms",
   },
 }));
