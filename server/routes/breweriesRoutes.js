@@ -7,19 +7,10 @@ router.get("/", async (req, res) => {
   try {
     const name = req.query.name || "";
     const zone = req.query.zone || "";
-    const ratingAvg = req.query.rating_avg;
-    let breweries;
-    if (ratingAvg) {
-      breweries = await db.query(
-        "SELECT * FROM breweries b LEFT JOIN (SELECT brewery_id AS brewery, COUNT(*) AS reviews, TRUNC(AVG(rating), 1) AS rating_avg FROM reviews GROUP BY brewery_id) r ON b.brewery_id = r.brewery WHERE b.name ILIKE $1 AND zone ILIKE $2 AND rating_avg >= $3 ORDER BY b.brewery_id;",
-        [`%${name}%`, `%${zone}%`, ratingAvg]
-      );
-    } else {
-      breweries = await db.query(
-        "SELECT * FROM breweries b LEFT JOIN (SELECT brewery_id AS brewery, COUNT(*) AS reviews, TRUNC(AVG(rating), 1) AS rating_avg FROM reviews GROUP BY brewery_id) r ON b.brewery_id = r.brewery WHERE b.name ILIKE $1 AND zone ILIKE $2 ORDER BY b.brewery_id;",
-        [`%${name}%`, `%${zone}%`]
-      );
-    }
+    const breweries = await db.query(
+      "SELECT * FROM breweries b LEFT JOIN (SELECT brewery_id AS brewery, COUNT(*) AS reviews, TRUNC(AVG(rating), 1) AS rating_avg FROM reviews GROUP BY brewery_id) r ON b.brewery_id = r.brewery WHERE b.name ILIKE $1 AND zone ILIKE $2 ORDER BY b.brewery_id;",
+      [`%${name}%`, `%${zone}%`]
+    );
     res.status(200).json({
       status: "success",
       cantidad: breweries.rowCount,
