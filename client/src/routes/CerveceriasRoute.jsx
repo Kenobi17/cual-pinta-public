@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CardCerveceria from "../components/CerveceriaRouteComponents/CardCerveceria";
+import SearchByName from "../components/CerveceriaRouteComponents/SearchByName";
 import Header from "../components/Header";
 import CerveceriasAPI from "../apis/CerveceriasAPI";
 import Grid from "@material-ui/core/Grid";
@@ -12,6 +13,9 @@ import "../css/Cervecerias.css";
 
 const CerveceriasRoute = () => {
   const [cervecerias, setCervecerias] = useState([]);
+  const filterByName = (cerveceriasFilter) => {
+    setCervecerias(cerveceriasFilter);
+  };
   const FetchData = async () => {
     try {
       const response = await CerveceriasAPI.get("/");
@@ -59,21 +63,7 @@ const CerveceriasRoute = () => {
                 </Accordion>
               </Grid>
               <Grid id="searchForm" item xs={12} md={10}>
-                <form noValidate autoComplete="off">
-                  <Typography
-                    variant="h2"
-                    component="h2"
-                    align="left"
-                    justify-self="left">
-                    Buscar cervecerias
-                  </Typography>
-                  <div className="search">
-                    <input type="text" className="searchTerm" />
-                    <button type="submit" className="searchButton">
-                      <i className="fa fa-search"></i>
-                    </button>
-                  </div>
-                </form>
+                <SearchByName filterByName={filterByName} />
               </Grid>
             </Grid>
             {cervecerias.map((cerveceria) => {
