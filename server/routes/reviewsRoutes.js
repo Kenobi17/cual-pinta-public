@@ -3,12 +3,11 @@ const router = require("express").Router(),
   middleware = require("../middleware/middleware");
 
 //GET USER'S REVIEWS ROUTE
-router.get("/user", middleware.isAuthorized, async (req, res) =>{
+router.get("/user", middleware.isAuthorized, async (req, res) => {
   try {
-    const reviews = await db.query(
-      "SELECT * FROM reviews WHERE user_id = $1", 
-      [req.user.id]
-    )
+    const reviews = await db.query("SELECT * FROM reviews WHERE user_id = $1", [
+      req.user.id,
+    ]);
     res.status(200).json({
       status: "success",
       data: {
@@ -19,7 +18,7 @@ router.get("/user", middleware.isAuthorized, async (req, res) =>{
     console.error(error.message);
     res.status(500).send("Error del servidor");
   }
-})
+});
 
 //CREATE NEW REVIEW ROUTE
 router.post("/new", middleware.isAuthorized, async (req, res) => {
