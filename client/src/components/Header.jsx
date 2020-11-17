@@ -56,7 +56,7 @@ const Header = () => {
   buttonRef.current = buttonStyle;
   useEffect(() => {
     const handleScroll = () => {
-      const show = window.scrollY > 160;
+      const show = window.scrollY > 70;
       if (show) {
         setNavStyle("appBarSolid");
         setButtonStyle("menuButtonSolid");
