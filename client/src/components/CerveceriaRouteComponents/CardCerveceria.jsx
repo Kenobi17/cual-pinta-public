@@ -55,7 +55,9 @@ const CardCerveceria = (props) => {
             component="h4">
             {props.name} <br />
             <span style={{ fontWeight: "400" }}>
-              {props.address} - {props.zone}
+              {props.zone}
+              <br />
+              Happy Hour: {props.happy_hour}
             </span>
           </Typography>
           <Typography variant="body2" component="p">
