@@ -69,7 +69,7 @@ const IndexRoute = () => {
             variant="contained"
             className={classes.button}
             size="medium"
-            startIcon={<i class="fas fa-beer"></i>}
+            startIcon={<i className="fas fa-beer"></i>}
             onClick={(e) => {
               history.push("/cervecerias");
             }}>
