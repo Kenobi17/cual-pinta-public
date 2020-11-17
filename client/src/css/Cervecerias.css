@@ -1,19 +1,9 @@
-#filterGrid {
-  color: #f6c90e;
-}
-
-#filterGrid h2 {
-  color: #f6c90e;
-  -webkit-text-stroke-width: 0.5px;
-  -webkit-text-stroke-color: black;
-  font-weight: 800;
-  font-size: medium;
-}
 .MuiGrid-item h1 {
   color: #f6c90e;
   -webkit-text-stroke-width: 1.5px;
   -webkit-text-stroke-color: black;
   font-weight: 800;
+  margin-bottom: 0.5em;
 }
 
 #searchForm h2 {
@@ -22,29 +12,19 @@
   -webkit-text-stroke-color: black;
   font-weight: 800;
   font-size: medium;
-}
-
-#panel1a-header {
-  background-color: #000;
-  color: #f6c90e;
-  padding-left: 0;
-}
-
-#accordionDetails {
-  background-color: #000;
-  color: #f6c90e;
+  padding-bottom: 4px;
 }
 
 .search {
   width: 100%;
   position: relative;
   display: flex;
+  margin-bottom: 1.5em;
 }
 
 .searchTerm {
   width: 100%;
   border: 3px solid #f6c90e;
-  border-right: none;
   padding: 5px;
   height: 20px;
   border-radius: 5px 0 0 5px;
@@ -58,13 +38,43 @@
 }
 
 .searchButton {
-  width: 40px;
+  width: 100px;
   height: 36px;
   border: 1px solid #f6c90e;
   background: #f6c90e;
   text-align: center;
   color: #000;
-  border-radius: 0 5px 5px 0;
+  border-radius: 5px 5px 5px 5px;
   cursor: pointer;
   font-size: 20px;
+}
+
+.box {
+  position: relative;
+  margin-bottom: 1.5em;
+}
+
+.box select {
+  width: 100%;
+  border: 3px solid #f6c90e;
+  padding: 5px;
+  height: 36px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #f6c90e;
+  background-color: #000;
+}
+
+.box select option {
+  padding: 30px;
+}
+
+#panel1a-header {
+  background-color: #000;
+  color: #f6c90e;
+}
+
+#panel1a-details {
+  background-color: #000;
+  color: #f6c90e;
 }
