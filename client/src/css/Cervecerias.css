@@ -27,7 +27,7 @@
   border: 3px solid #f6c90e;
   padding: 5px;
   height: 20px;
-  border-radius: 5px 0 0 5px;
+  border-radius: 5px;
   outline: none;
   color: #f6c90e;
   background-color: #000;
@@ -44,7 +44,7 @@
   background: #f6c90e;
   text-align: center;
   color: #000;
-  border-radius: 5px 5px 5px 5px;
+  border-radius: 5px;
   cursor: pointer;
   font-size: 20px;
 }
@@ -59,7 +59,7 @@
   border: 3px solid #f6c90e;
   padding: 5px;
   height: 36px;
-  border-radius: 5px 0 0 5px;
+  border-radius: 5px;
   outline: none;
   color: #f6c90e;
   background-color: #000;
