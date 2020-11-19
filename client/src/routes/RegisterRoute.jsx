@@ -7,7 +7,7 @@ import RegisterLogo from "../assets/RegisterLogo.svg";
 import RegisterForm from "../components/RegisterForm";
 import "../css/Register.css";
 
-const RegisterRoute = () => {
+const RegisterRoute = ({ setAuth }) => {
   return (
     <div className="RegisterRoute">
       <Header />
@@ -32,7 +32,7 @@ const RegisterRoute = () => {
             </Grid>
           </Hidden>
           <Grid item container md={6} xs={12} justify="center">
-            <RegisterForm />
+            <RegisterForm setAuth={setAuth} />
           </Grid>
         </Grid>
       </Grid>

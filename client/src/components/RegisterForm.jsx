@@ -15,7 +15,7 @@ const useStyles = makeStyles({
   },
 });
 
-const RegisterForm = () => {
+const RegisterForm = ({ setAuth }) => {
   const classes = useStyles();
   const [inputsValues, setInputsValues] = useState({
     firstName: "",
@@ -38,6 +38,9 @@ const RegisterForm = () => {
       });
       if (response.data.token) {
         localStorage.setItem("token", response.data.token);
+        setAuth(true);
+      } else {
+        setAuth(false);
       }
     } catch (error) {
       console.error(error.response.data);
@@ -65,7 +68,7 @@ const RegisterForm = () => {
             name="firstName"
             placeholder="Nombre *"
             className="registerInput"
-            maxlength="20"
+            maxLength="20"
           />
           <input
             onChange={handleChange}
@@ -74,7 +77,7 @@ const RegisterForm = () => {
             name="lastName"
             placeholder="Apellido *"
             className="registerInput"
-            maxlength="20"
+            maxLength="20"
           />
           <input
             onChange={handleChange}
@@ -83,7 +86,7 @@ const RegisterForm = () => {
             name="email"
             placeholder="Email *"
             className="registerInput"
-            maxlength="50"
+            maxLength="50"
           />
           <input
             onChange={handleChange}
