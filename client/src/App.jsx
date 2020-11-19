@@ -9,6 +9,7 @@ import {
 //ROUTES
 import CerveceriasRoute from "./routes/CerveceriasRoute";
 import IndexRoute from "./routes/IndexRoute";
+import RegisterRoute from "./routes/RegisterRoute";
 function App() {
   return (
     <div className="App">
@@ -19,6 +20,11 @@ function App() {
             exact
             path="/cervecerias"
             render={(props) => <CerveceriasRoute {...props} />}
+          />
+          <Route
+            exact
+            path="/register"
+            render={(props) => <RegisterRoute {...props} />}
           />
         </Switch>
       </Router>
