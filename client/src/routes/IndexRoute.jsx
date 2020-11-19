@@ -5,7 +5,6 @@ import Button from "@material-ui/core/Button";
 import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import PersonIcon from "@material-ui/icons/Person";
 import { makeStyles } from "@material-ui/core/styles";
-import yellow from "@material-ui/core/colors/yellow";
 import { useHistory } from "react-router-dom";
 import Header from "../components/Header";
 import IndexHeaderLogo from "../assets/IndexHeaderLogo.svg";
