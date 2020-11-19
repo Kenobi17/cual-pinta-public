@@ -34,8 +34,8 @@ function App() {
   });
   return (
     <div className="App">
-      <Header />
       <Router>
+        <Header isAuthenticated={isAuthenticated} setAuth={setAuth} />
         <Switch>
           <Route exact path="/" render={(props) => <IndexRoute {...props} />} />
           <Route
