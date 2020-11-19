@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -44,7 +45,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Header = () => {
+const Header = ({ isAuthenticated, setAuth }) => {
+  let history = useHistory();
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -79,6 +81,16 @@ const Header = () => {
     setAnchorEl(null);
   };
 
+  const handleClick = (route) => {
+    history.push(`/${route}`);
+    setAnchorEl(null);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    history.push("/");
+    setAuth(false);
+  };
   return (
     <div className={classes.root}>
       <AppBar position="fixed" className={classes[navRef.current]}>
@@ -88,6 +100,8 @@ const Header = () => {
               src={LogoAppBar}
               alt="Cuál Pinta Tucumán"
               className={classes.logo}
+              onClick={() => handleClick("")}
+              style={{ cursor: "pointer" }}
             />
           </Typography>
           <div>
@@ -113,9 +127,24 @@ const Header = () => {
               }}
               open={open}
               onClose={handleClose}>
-              <MenuItem onClick={handleClose}>Cervecerias</MenuItem>
-              <MenuItem onClick={handleClose}>Iniciar Sesión</MenuItem>
-              <MenuItem onClick={handleClose}>Contacto</MenuItem>
+              {!isAuthenticated ? (
+                <div>
+                  <MenuItem onClick={() => handleClick("login")}>
+                    Iniciar Sesión
+                  </MenuItem>
+                  <MenuItem onClick={() => handleClick("register")}>
+                    Registrarse
+                  </MenuItem>
+                </div>
+              ) : (
+                <MenuItem onClick={handleLogout}>Cerrar Sesión</MenuItem>
+              )}
+              <MenuItem onClick={() => handleClick("cervecerias")}>
+                Cervecerias
+              </MenuItem>
+              <MenuItem onClick={() => handleClick("contacto")}>
+                Contacto
+              </MenuItem>
             </Menu>
           </div>
         </Toolbar>
