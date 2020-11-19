@@ -3,6 +3,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
+import authentication from "../apis/authentication";
 
 const useStyles = makeStyles({
   button: {
@@ -26,6 +27,22 @@ const RegisterForm = () => {
     const { value, name } = e.target;
     setInputsValues({ ...inputsValues, [name]: value });
   };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await authentication.post("/register", {
+        firstName: inputsValues.firstName,
+        lastName: inputsValues.lastName,
+        email: inputsValues.email,
+        password: inputsValues.password,
+      });
+      if (response.data.token) {
+        localStorage.setItem("token", response.data.token);
+      }
+    } catch (error) {
+      console.error(error.response.data);
+    }
+  };
 
   return (
     <Grid
@@ -37,7 +54,7 @@ const RegisterForm = () => {
       justify="center"
       id="registerGrid">
       <div id="registerDiv">
-        <form autoComplete="off">
+        <form autoComplete="off" onSubmit={handleSubmit}>
           <Typography variant="h4" component="h3" align="center">
             Registrate
           </Typography>
@@ -48,6 +65,7 @@ const RegisterForm = () => {
             name="firstName"
             placeholder="Nombre *"
             className="registerInput"
+            maxlength="20"
           />
           <input
             onChange={handleChange}
@@ -56,6 +74,7 @@ const RegisterForm = () => {
             name="lastName"
             placeholder="Apellido *"
             className="registerInput"
+            maxlength="20"
           />
           <input
             onChange={handleChange}
@@ -64,6 +83,7 @@ const RegisterForm = () => {
             name="email"
             placeholder="Email *"
             className="registerInput"
+            maxlength="50"
           />
           <input
             onChange={handleChange}
@@ -72,6 +92,7 @@ const RegisterForm = () => {
             name="password"
             placeholder="Contraseña *"
             className="registerInput"
+            minLength="8"
           />
           <Button
             type="submit"
