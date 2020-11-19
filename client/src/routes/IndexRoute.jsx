@@ -58,7 +58,10 @@ const IndexRoute = () => {
             variant="contained"
             className={classes.button}
             size="medium"
-            startIcon={<PersonAddIcon />}>
+            startIcon={<PersonAddIcon />}
+            onClick={(e) => {
+              history.push("/register");
+            }}>
             Registrarse
           </Button>
         </Grid>
