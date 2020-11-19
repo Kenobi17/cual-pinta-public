@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "../components/Header";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Hidden from "@material-ui/core/Hidden";
@@ -10,7 +9,6 @@ import "../css/Register.css";
 const RegisterRoute = ({ setAuth }) => {
   return (
     <div className="RegisterRoute">
-      <Header />
       <Grid
         justify="center"
         alignItems="center"

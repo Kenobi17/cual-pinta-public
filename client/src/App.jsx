@@ -11,6 +11,7 @@ import authentication from "./apis/authentication";
 import CerveceriasRoute from "./routes/CerveceriasRoute";
 import IndexRoute from "./routes/IndexRoute";
 import RegisterRoute from "./routes/RegisterRoute";
+import Header from "./components/Header";
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const setAuth = (boolean) => {
@@ -33,6 +34,7 @@ function App() {
   });
   return (
     <div className="App">
+      <Header />
       <Router>
         <Switch>
           <Route exact path="/" render={(props) => <IndexRoute {...props} />} />

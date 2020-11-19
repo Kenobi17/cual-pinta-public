@@ -6,7 +6,6 @@ import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import PersonIcon from "@material-ui/icons/Person";
 import { makeStyles } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
-import Header from "../components/Header";
 import IndexHeaderLogo from "../assets/IndexHeaderLogo.svg";
 import "../css/Index.css";
 
@@ -24,7 +23,6 @@ const IndexRoute = () => {
   const classes = useStyles();
   return (
     <div className="IndexRoute">
-      <Header />
       <Grid justify="center" container className="mainContainer">
         <Grid item container justify="center" xs={10} sm={6} md={3}>
           <img id="IndexHeaderLogo" src={IndexHeaderLogo} alt="¿Cuál Pinta?" />

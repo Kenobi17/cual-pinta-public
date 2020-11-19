@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CardCerveceria from "../components/CerveceriaRouteComponents/CardCerveceria";
 import Search from "../components/CerveceriaRouteComponents/Search";
-import Header from "../components/Header";
 import CerveceriasAPI from "../apis/CerveceriasAPI";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
@@ -25,7 +24,6 @@ const CerveceriasRoute = () => {
   }, []);
   return (
     <div className="CerveceriasRoute">
-      <Header />
       <Grid container justify="center" className="mainContainer">
         <Grid container item xs={10} justify="center">
           <Grid item xs={12}>
