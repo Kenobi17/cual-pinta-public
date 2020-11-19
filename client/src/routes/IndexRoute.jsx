@@ -13,9 +13,9 @@ import "../css/Index.css";
 
 const useStyles = makeStyles({
   button: {
-    backgroundColor: yellow[500],
+    backgroundColor: "#f6c90e",
     "&:hover": {
-      backgroundColor: yellow[700],
+      backgroundColor: "#b09110",
     },
   },
 });
