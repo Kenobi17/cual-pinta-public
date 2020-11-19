@@ -5,9 +5,21 @@ import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import Button from "@material-ui/core/Button";
+import { makeStyles } from "@material-ui/core/styles";
 import CerveceriasAPI from "../../apis/CerveceriasAPI";
 
+const useStyles = makeStyles({
+  button: {
+    backgroundColor: "#f6c90e",
+    "&:hover": {
+      backgroundColor: "#b09110",
+    },
+  },
+});
+
 const Search = ({ filterBreweries }) => {
+  const classes = useStyles();
   const [inputsValues, setInputsValues] = useState({
     searchName: "",
     searchZone: "",
@@ -69,9 +81,13 @@ const Search = ({ filterBreweries }) => {
               <option value="Yerba Buena">Yerba Buena</option>
             </select>
           </div>
-          <button type="submit" className="searchButton">
+          <Button
+            type="submit"
+            variant="contained"
+            className={classes.button}
+            size="medium">
             Buscar
-          </button>
+          </Button>
         </form>
       </Hidden>
       <Hidden lgUp>
@@ -120,9 +136,13 @@ const Search = ({ filterBreweries }) => {
                   <option value="Yerba Buena">Yerba Buena</option>
                 </select>
               </div>
-              <button type="submit" className="searchButton">
+              <Button
+                type="submit"
+                variant="contained"
+                className={classes.button}
+                size="medium">
                 Buscar
-              </button>
+              </Button>
             </form>
           </AccordionDetails>
         </Accordion>
