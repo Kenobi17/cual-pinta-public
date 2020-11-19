@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import RegisterLogo from "../assets/RegisterLogo.svg";
+import RegisterForm from "../components/RegisterForm";
 import "../css/Register.css";
 
 const RegisterRoute = () => {
@@ -28,46 +29,7 @@ const RegisterRoute = () => {
             </div>
           </Grid>
           <Grid item container md={6} xs={12} justify="center">
-            <Grid
-              item
-              container
-              md={8}
-              sm={10}
-              xs={12}
-              justify="center"
-              id="registerGrid">
-              <div id="registerDiv">
-                <form autoComplete="off">
-                  <Typography variant="h4" component="h3" align="center">
-                    Registrarse
-                  </Typography>
-                  <input
-                    type="text"
-                    name="firstName"
-                    placeholder="Nombre *"
-                    className="registerInput"
-                  />
-                  <input
-                    type="text"
-                    name="lastName"
-                    placeholder="Apellido *"
-                    className="registerInput"
-                  />
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email *"
-                    className="registerInput"
-                  />
-                  <input
-                    type="password"
-                    name="password"
-                    placeholder="Contraseña *"
-                    className="registerInput"
-                  />
-                </form>
-              </div>
-            </Grid>
+            <RegisterForm />
           </Grid>
         </Grid>
       </Grid>

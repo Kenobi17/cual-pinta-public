@@ -3,7 +3,7 @@
   border-radius: 15px;
   margin-top: 60px;
   margin-bottom: 60px;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
 }
 
 #registerGrid h3 {
@@ -30,6 +30,7 @@
   width: 100%;
   text-align: center;
   height: 220px;
+  margin-top: 60px;
 }
 #registerLogo img {
   width: 220px;
