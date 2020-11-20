@@ -1,0 +1,91 @@
+#loginGrid {
+  border: 2px solid #f6c90e;
+  border-radius: 15px;
+  margin-top: 110px;
+  margin-bottom: 60px;
+  padding-bottom: 20px;
+}
+
+#loginGrid h3 {
+  color: #f6c90e;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: black;
+  font-weight: 800;
+  margin-top: 20px;
+  text-align: center;
+}
+
+#loginDiv {
+  text-align: center;
+  width: 80%;
+}
+
+#loginDiv form {
+  width: 100%;
+  display: inline-block;
+  margin: auto;
+}
+
+#loginLogo {
+  width: 100%;
+  text-align: center;
+  height: 220px;
+  margin-top: 60px;
+}
+#loginLogo img {
+  width: 220px;
+  height: 220px;
+  margin: auto;
+}
+
+#loginLogo h2 {
+  color: #f6c90e;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: black;
+  font-weight: 800;
+  margin-top: 20px;
+  text-align: center;
+}
+
+#loginLogo p {
+  color: #f6c90e;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: black;
+  font-weight: 800;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.loginInput {
+  display: block;
+  width: 95%;
+  margin-top: 30px;
+  border: 2px solid #f6c90e;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px;
+  outline: none;
+  color: #f6c90e;
+  background-color: #000;
+}
+
+.loginInput::placeholder {
+  color: rgba(246, 201, 14, 0.7);
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  box-shadow: #000;
+  -webkit-box-shadow: #000 inset !important;
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  box-shadow: 0 0 0 1000px rgb(44, 37, 37) inset !important;
+  -webkit-box-shadow: 0 0 0 1000px rgb(44, 37, 37) inset !important;
+  /*use inset box-shadow to cover background-color*/
+  -webkit-text-fill-color: #f6c90e !important;
+  /*use text fill color to cover font color*/
+}

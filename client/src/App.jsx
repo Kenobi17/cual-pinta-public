@@ -11,6 +11,7 @@ import authentication from "./apis/authentication";
 import CerveceriasRoute from "./routes/CerveceriasRoute";
 import IndexRoute from "./routes/IndexRoute";
 import RegisterRoute from "./routes/RegisterRoute";
+import LoginRoute from "./routes/LoginRoute";
 import Header from "./components/Header";
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -49,6 +50,17 @@ function App() {
             render={(props) =>
               !isAuthenticated ? (
                 <RegisterRoute {...props} setAuth={setAuth} />
+              ) : (
+                <Redirect to="/cervecerias" />
+              )
+            }
+          />
+          <Route
+            exact
+            path="/login"
+            render={(props) =>
+              !isAuthenticated ? (
+                <LoginRoute {...props} setAuth={setAuth} />
               ) : (
                 <Redirect to="/cervecerias" />
               )
