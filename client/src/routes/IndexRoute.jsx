@@ -49,7 +49,10 @@ const IndexRoute = () => {
             variant="contained"
             className={classes.button}
             size="medium"
-            startIcon={<PersonIcon />}>
+            startIcon={<PersonIcon />}
+            onClick={(e) => {
+              history.push("/login");
+            }}>
             Iniciar Sesión
           </Button>
           <Button
