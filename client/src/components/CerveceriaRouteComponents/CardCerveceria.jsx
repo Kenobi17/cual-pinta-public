@@ -31,8 +31,8 @@ const useStyles = makeStyles({
 });
 const CardCerveceria = (props) => {
   let history = useHistory();
-  const handleClick = (slug) => {
-    history.push(`/cervecerias/${slug}`);
+  const handleClick = (id) => {
+    history.push(`/cervecerias/${id}`);
   };
 
   const classes = useStyles();
@@ -41,7 +41,7 @@ const CardCerveceria = (props) => {
     <Card className={classes.root}>
       <CardActionArea
         style={{ height: "100%" }}
-        onClick={(e) => handleClick(props.slug)}>
+        onClick={(e) => handleClick(props.brewery_id)}>
         <CardMedia
           className={classes.media}
           image={props.image}
