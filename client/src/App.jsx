@@ -9,6 +9,7 @@ import {
 import authentication from "./apis/authentication";
 //ROUTES
 import CerveceriasRoute from "./routes/CerveceriasRoute";
+import CerveceriaPageRoute from "./routes/CerveceriaPageRoute";
 import IndexRoute from "./routes/IndexRoute";
 import RegisterRoute from "./routes/RegisterRoute";
 import LoginRoute from "./routes/LoginRoute";
@@ -41,11 +42,6 @@ function App() {
           <Route exact path="/" render={(props) => <IndexRoute {...props} />} />
           <Route
             exact
-            path="/cervecerias"
-            render={(props) => <CerveceriasRoute {...props} />}
-          />
-          <Route
-            exact
             path="/register"
             render={(props) =>
               !isAuthenticated ? (
@@ -65,6 +61,16 @@ function App() {
                 <Redirect to="/cervecerias" />
               )
             }
+          />
+          <Route
+            exact
+            path="/cervecerias"
+            render={(props) => <CerveceriasRoute {...props} />}
+          />
+          <Route
+            exact
+            path="/cervecerias/:id"
+            render={(props) => <CerveceriaPageRoute {...props} />}
           />
         </Switch>
       </Router>
