@@ -82,6 +82,17 @@ function App() {
             path="/cervecerias/:id"
             render={(props) => <CerveceriaPageRoute {...props} />}
           />
+          <Route
+            path="*"
+            exact={true}
+            render={(props) =>
+              !isAuthenticated ? (
+                <IndexRoute {...props} />
+              ) : (
+                <Redirect to="/cervecerias" />
+              )
+            }
+          />
         </Switch>
       </Router>
     </div>
