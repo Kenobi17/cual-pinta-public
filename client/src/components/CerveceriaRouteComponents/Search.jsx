@@ -103,7 +103,8 @@ const Search = ({ filterBreweries }) => {
               noValidate
               autoComplete="off"
               onSubmit={handleSubmit}
-              id="searchForm">
+              id="searchForm"
+              style={{ width: "100%" }}>
               <Typography variant="h2" component="h2">
                 Nombre
               </Typography>
