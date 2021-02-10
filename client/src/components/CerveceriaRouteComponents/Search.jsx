@@ -69,8 +69,8 @@ const Search = ({ filterBreweries }) => {
               onChange={handleChange}
               value={inputsValues.searchZone}
               name="searchZone">
-              <option value=""></option>
-              <option value="4 Avenidas">4 Avenidas</option>
+              <option value="">Todas</option>
+              <option value="4 Avenidas y otros">4 Avenidas y otros</option>
               <option value="Aguilares">Aguilares</option>
               <option value="Barrio Norte">Barrio Norte</option>
               <option value="Barrio Sur">Barrio Sur</option>
@@ -124,8 +124,8 @@ const Search = ({ filterBreweries }) => {
                   onChange={handleChange}
                   value={inputsValues.searchZone}
                   name="searchZone">
-                  <option value=""></option>
-                  <option value="4 Avenidas">4 Avenidas</option>
+                  <option value="">Todas</option>
+                  <option value="4 Avenidas y otros">4 Avenidas y otros</option>
                   <option value="Aguilares">Aguilares</option>
                   <option value="Barrio Norte">Barrio Norte</option>
                   <option value="Barrio Sur">Barrio Sur</option>
