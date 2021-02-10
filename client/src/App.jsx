@@ -39,7 +39,17 @@ function App() {
       <Router>
         <Header isAuthenticated={isAuthenticated} setAuth={setAuth} />
         <Switch>
-          <Route exact path="/" render={(props) => <IndexRoute {...props} />} />
+          <Route
+            exact
+            path="/"
+            render={(props) =>
+              !isAuthenticated ? (
+                <IndexRoute {...props} />
+              ) : (
+                <Redirect to="/cervecerias" />
+              )
+            }
+          />
           <Route
             exact
             path="/register"
