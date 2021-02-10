@@ -90,6 +90,7 @@ const Header = ({ isAuthenticated, setAuth }) => {
     localStorage.removeItem("token");
     history.push("/");
     setAuth(false);
+    setAnchorEl(null);
   };
   return (
     <div className={classes.root}>
