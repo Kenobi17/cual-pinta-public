@@ -83,8 +83,8 @@ function App() {
             render={(props) => <CerveceriaPageRoute {...props} />}
           />
           <Route
+            exact
             path="*"
-            exact={true}
             render={(props) =>
               !isAuthenticated ? (
                 <IndexRoute {...props} />
