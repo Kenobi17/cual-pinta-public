@@ -47,11 +47,7 @@ const CerveceriasRoute = () => {
               {cervecerias.map((cerveceria) => {
                 return (
                   <Grid key={cerveceria.brewery_id} item xs={12} sm={6} md={3}>
-                    <CardCerveceria
-                      image={cerveceria.image}
-                      title={cerveceria.name}
-                      {...cerveceria}
-                    />
+                    <CardCerveceria {...cerveceria} />
                   </Grid>
                 );
               })}
