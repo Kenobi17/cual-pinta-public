@@ -28,7 +28,7 @@ router.get("/:id", async (req, res) => {
   try {
     const id = req.params.id;
     const brewery = await db.query(
-      "SELECT * FROM breweries WHERE brewery_id = $1",
+      "SELECT * FROM breweries b LEFT JOIN (SELECT brewery_id AS brewery, COUNT(*) AS reviews, TRUNC(AVG(rating), 1) AS rating_avg FROM reviews GROUP BY brewery_id) r on b.brewery_id = r.brewery WHERE brewery_id = $1",
       [id]
     );
     const reviews = await db.query(
