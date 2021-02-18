@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
+import CerveceriaDataGrid from "../components/CerveceriaDataGrid";
 import CerveceriasAPI from "../apis/CerveceriasAPI";
 import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const CerveceriaPageRoute = () => {
   let history = useHistory();
@@ -27,13 +28,11 @@ const CerveceriaPageRoute = () => {
   return (
     <div className="CerveceriaPageRoute">
       <Grid container justify="center" className="mainContainer">
-        <Grid container item xs={10} justify="center">
-          <Grid item xs={12}>
-            <Typography variant="h3" component="h1" align="center">
-              {cerveceria.name}
-            </Typography>
-          </Grid>
-        </Grid>
+        {cerveceria.image ? (
+          <CerveceriaDataGrid {...cerveceria} />
+        ) : (
+          <CircularProgress style={{ color: "#F6C90E" }} />
+        )}
       </Grid>
     </div>
   );
