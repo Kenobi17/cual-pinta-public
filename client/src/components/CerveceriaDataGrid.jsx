@@ -39,7 +39,8 @@ const useStyles = makeStyles({
   },
   dividerRootMobile: {
     width: "100%",
-    maxWidth: 280,
+    maxWidth: 500,
+    margin: "auto",
     color: "#F6C90E",
     paddingTop: 0,
   },
@@ -143,7 +144,7 @@ const CerveceriaDataGrid = (props) => {
           </List>
         </Grid>
       </Hidden>
-      <Grid item xs={12} md={4} xl={10} style={{ maxWidth: 500 }}>
+      <Grid item xs={12} style={{ maxWidth: 500 }}>
         <Card className={classes.root}>
           <CardMedia
             className={classes.media}
