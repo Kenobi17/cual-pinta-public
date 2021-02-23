@@ -57,7 +57,7 @@ const useStyles = makeStyles({
   },
 });
 
-const CerveceriaDataGrid = (props) => {
+const CerveceriaDataGrid = ({ cerveceria }) => {
   const classes = useStyles();
 
   return (
@@ -73,10 +73,10 @@ const CerveceriaDataGrid = (props) => {
               </ListItemAvatar>
               <span>
                 <Typography gutterBottom variant="body1" component="h4">
-                  {props.zone}
+                  {cerveceria.zone}
                 </Typography>
                 <Typography gutterBottom variant="caption" component="h5">
-                  {props.address}
+                  {cerveceria.address}
                 </Typography>
               </span>
             </ListItem>
@@ -92,7 +92,7 @@ const CerveceriaDataGrid = (props) => {
                   Happy Hour
                 </Typography>
                 <Typography gutterBottom variant="caption" component="h5">
-                  {props.happy_hour}
+                  {cerveceria.happy_hour}
                 </Typography>
               </span>
             </ListItem>
@@ -109,11 +109,11 @@ const CerveceriaDataGrid = (props) => {
                 </Typography>
                 <Typography gutterBottom variant="caption" component="h5">
                   <Link
-                    href={props.instagram}
+                    href={cerveceria.instagram}
                     style={{ color: "#F6C90E" }}
                     target="_blank"
                     underline="always">
-                    {props.name}
+                    {cerveceria.name}
                   </Link>
                 </Typography>
               </span>
@@ -128,14 +128,18 @@ const CerveceriaDataGrid = (props) => {
               <span>
                 <Typography gutterBottom variant="body1" component="h4">
                   Reseñas{" "}
-                  {!props.reviews ? <></> : <>({props.reviews.length})</>}
+                  {!cerveceria.reviews ? (
+                    <></>
+                  ) : (
+                    <>({cerveceria.reviews.length})</>
+                  )}
                 </Typography>
                 <Typography gutterBottom variant="caption" component="h5">
-                  {!props.reviews ? (
+                  {!cerveceria.reviews ? (
                     <>Sin reseñas</>
                   ) : (
                     <>
-                      <StarRating rating={props.rating_avg} />
+                      <StarRating rating={cerveceria.rating_avg} />
                     </>
                   )}
                 </Typography>
@@ -148,8 +152,8 @@ const CerveceriaDataGrid = (props) => {
         <Card className={classes.root}>
           <CardMedia
             className={classes.media}
-            image={props.image}
-            title={props.name}
+            image={cerveceria.image}
+            title={cerveceria.name}
           />
         </Card>
       </Grid>
@@ -164,10 +168,10 @@ const CerveceriaDataGrid = (props) => {
               </ListItemAvatar>
               <span>
                 <Typography gutterBottom variant="body1" component="h4">
-                  {props.zone}
+                  {cerveceria.zone}
                 </Typography>
                 <Typography gutterBottom variant="caption" component="h5">
-                  {props.address}
+                  {cerveceria.address}
                 </Typography>
               </span>
             </ListItem>
@@ -183,7 +187,7 @@ const CerveceriaDataGrid = (props) => {
                   Happy Hour
                 </Typography>
                 <Typography gutterBottom variant="caption" component="h5">
-                  {props.happy_hour}
+                  {cerveceria.happy_hour}
                 </Typography>
               </span>
             </ListItem>
@@ -200,11 +204,11 @@ const CerveceriaDataGrid = (props) => {
                 </Typography>
                 <Typography gutterBottom variant="caption" component="h5">
                   <Link
-                    href={props.instagram}
+                    href={cerveceria.instagram}
                     style={{ color: "#F6C90E" }}
                     target="_blank"
                     underline="always">
-                    {props.name}
+                    {cerveceria.name}
                   </Link>
                 </Typography>
               </span>
@@ -219,14 +223,18 @@ const CerveceriaDataGrid = (props) => {
               <span>
                 <Typography gutterBottom variant="body1" component="h4">
                   Reseñas{" "}
-                  {!props.reviews ? <></> : <>({props.reviews.length})</>}
+                  {!cerveceria.reviews ? (
+                    <></>
+                  ) : (
+                    <>({cerveceria.reviews.length})</>
+                  )}
                 </Typography>
                 <Typography gutterBottom variant="caption" component="h5">
-                  {!props.reviews ? (
+                  {!cerveceria.reviews ? (
                     <>Sin reseñas</>
                   ) : (
                     <>
-                      <StarRating rating={props.rating_avg} />
+                      <StarRating rating={cerveceria.rating_avg} />
                     </>
                   )}
                 </Typography>

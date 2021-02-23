@@ -8,7 +8,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 const CerveceriaPageRoute = () => {
   let history = useHistory();
   const { id } = useParams();
-  const [cerveceria, setCerveceria] = useState({});
+  const [cerveceriaData, setCerveceriaData] = useState({});
   useEffect(() => {
     if (isNaN(id) === true) {
       history.push("/cervecerias");
@@ -18,7 +18,7 @@ const CerveceriaPageRoute = () => {
         const response = await CerveceriasAPI.get(`/${id}`);
         typeof response.data.data.cerveceria === "undefined"
           ? history.push("/cervecerias")
-          : setCerveceria(response.data.data.cerveceria);
+          : setCerveceriaData(response.data.data);
       } catch (error) {
         console.log(error);
       }
@@ -28,8 +28,8 @@ const CerveceriaPageRoute = () => {
   return (
     <div className="CerveceriaPageRoute">
       <Grid container justify="center" className="mainContainer">
-        {cerveceria.image ? (
-          <CerveceriaDataGrid {...cerveceria} />
+        {cerveceriaData.cerveceria ? (
+          <CerveceriaDataGrid cerveceria={cerveceriaData.cerveceria} />
         ) : (
           <CircularProgress style={{ color: "#F6C90E" }} />
         )}
