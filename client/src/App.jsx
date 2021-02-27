@@ -33,7 +33,7 @@ function App() {
   };
   useEffect(() => {
     isAuth();
-  });
+  }, []);
   return (
     <div className="App">
       <Router>
@@ -80,7 +80,12 @@ function App() {
           <Route
             exact
             path="/cervecerias/:id"
-            render={(props) => <CerveceriaPageRoute {...props} />}
+            render={(props) => (
+              <CerveceriaPageRoute
+                {...props}
+                isAuthenticated={isAuthenticated}
+              />
+            )}
           />
           <Route
             exact
