@@ -40,9 +40,10 @@ const CerveceriaPageRoute = ({ isAuthenticated }) => {
               <AddReview cerveceria={cerveceriaData.cerveceria} />
             ) : (
               <Typography
-                variant="h6"
+                variant="subtitle2"
                 component="h2"
-                style={{ marginTop: "20px" }}>
+                style={{ marginTop: "20px" }}
+                align="center">
                 <Link
                   href={"/login"}
                   style={{ color: "#F6C90E" }}
