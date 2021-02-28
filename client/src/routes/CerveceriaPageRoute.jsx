@@ -6,7 +6,6 @@ import CerveceriasAPI from "../apis/CerveceriasAPI";
 import Grid from "@material-ui/core/Grid";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Typography from "@material-ui/core/Typography";
-import Link from "@material-ui/core/Link";
 import "../css/CerveceriaPage.css";
 
 const CerveceriaPageRoute = ({ isAuthenticated }) => {
@@ -44,19 +43,27 @@ const CerveceriaPageRoute = ({ isAuthenticated }) => {
                 component="h2"
                 style={{ marginTop: "20px" }}
                 align="center">
-                <Link
-                  href={"/login"}
+                <a
+                  onClick={(e) => {
+                    e.preventDefault();
+                    history.push("/login");
+                  }}
+                  href="/login"
                   style={{ color: "#F6C90E" }}
                   underline="always">
                   Iniciá sesión
-                </Link>
+                </a>
                 <span style={{ color: "#F6C90E" }}> ó </span>
-                <Link
-                  href={"/register"}
+                <a
+                  onClick={(e) => {
+                    e.preventDefault();
+                    history.push("/register");
+                  }}
+                  href="/register"
                   style={{ color: "#F6C90E" }}
                   underline="always">
                   registrate
-                </Link>
+                </a>
                 <span style={{ color: "#F6C90E" }}>
                   {" "}
                   para dejar tu opinion acerca de{" "}
