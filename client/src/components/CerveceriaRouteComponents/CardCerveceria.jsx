@@ -31,7 +31,8 @@ const useStyles = makeStyles({
 });
 const CardCerveceria = (props) => {
   let history = useHistory();
-  const handleClick = (id) => {
+  const handleClick = (e, id) => {
+    e.preventDefault();
     history.push(`/cervecerias/${id}`);
   };
 
@@ -41,7 +42,7 @@ const CardCerveceria = (props) => {
     <Card className={classes.root}>
       <CardActionArea
         style={{ height: "100%" }}
-        onClick={(e) => handleClick(props.brewery_id)}
+        onClick={(e) => handleClick(e, props.brewery_id)}
         href={`/cervecerias/${props.brewery_id}`}>
         <CardMedia
           className={classes.media}
