@@ -41,7 +41,8 @@ const CardCerveceria = (props) => {
     <Card className={classes.root}>
       <CardActionArea
         style={{ height: "100%" }}
-        onClick={(e) => handleClick(props.brewery_id)}>
+        onClick={(e) => handleClick(props.brewery_id)}
+        href={`/cervecerias/${props.brewery_id}`}>
         <CardMedia
           className={classes.media}
           image={props.image}
