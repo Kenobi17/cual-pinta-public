@@ -22,7 +22,6 @@ const CerveceriaPageRoute = ({ isAuthenticated }) => {
         typeof response.data.data.cerveceria === "undefined"
           ? history.push("/cervecerias")
           : setCerveceriaData(response.data.data);
-        console.log(response.data.data);
       } catch (error) {
         console.log(error);
       }
