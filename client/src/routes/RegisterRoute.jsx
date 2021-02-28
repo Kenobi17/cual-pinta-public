@@ -2,11 +2,13 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Hidden from "@material-ui/core/Hidden";
+import { useHistory } from "react-router-dom";
 import RegisterLogo from "../assets/RegisterLogo.svg";
 import RegisterForm from "../components/RegisterForm";
 import "../css/Register.css";
 
 const RegisterRoute = ({ setAuth }) => {
+  let history = useHistory();
   return (
     <div className="RegisterRoute">
       <Grid
@@ -31,6 +33,24 @@ const RegisterRoute = ({ setAuth }) => {
           </Hidden>
           <Grid item container md={6} xs={12} justify="center">
             <RegisterForm setAuth={setAuth} />
+            <Typography
+              variant="subtitle2"
+              component="h2"
+              align="center"
+              style={{ color: "#F6C90E", marginTop: "-50px" }}>
+              ¿Ya tenés una cuenta? Hace click{" "}
+              <a
+                onClick={(e) => {
+                  e.preventDefault();
+                  history.push("/login");
+                }}
+                href="/login"
+                style={{ color: "#F6C90E" }}
+                underline="always">
+                aquí
+              </a>{" "}
+              para iniciar sesión
+            </Typography>
           </Grid>
         </Grid>
       </Grid>
