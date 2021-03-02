@@ -20,6 +20,27 @@ router.get("/user", middleware.isAuthorized, async (req, res) => {
   }
 });
 
+//CHECK IF USER ALREADY HAS A REVIEW
+router.post("/check", middleware.isAuthorized, async (req, res) => {
+  try {
+    let hasReview;
+    const review = await db.query(
+      "SELECT * FROM reviews WHERE user_id = $1 AND brewery_id = $2",
+      [req.user.id, req.body.brewery_id]
+    );
+    if (review.rows.length !== 0) {
+      hasReview = true;
+      return res.json(hasReview);
+    } else {
+      hasReview = false;
+      return res.json(hasReview);
+    }
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Error del servidor");
+  }
+});
+
 //CREATE NEW REVIEW ROUTE
 router.post("/new", middleware.isAuthorized, async (req, res) => {
   try {
