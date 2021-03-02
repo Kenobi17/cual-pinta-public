@@ -32,7 +32,7 @@ router.get("/:id", async (req, res) => {
       [id]
     );
     const reviews = await db.query(
-      "SELECT * FROM reviews WHERE brewery_id = $1",
+      "SELECT * FROM reviews r LEFT JOIN (SELECT first_name, last_name, user_id FROM users) u ON r.user_id = u.user_id WHERE brewery_id = $1",
       [id]
     );
     res.status(200).json({
