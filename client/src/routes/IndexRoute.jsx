@@ -50,7 +50,9 @@ const IndexRoute = () => {
             className={classes.button}
             size="medium"
             startIcon={<PersonIcon />}
+            href="/login"
             onClick={(e) => {
+              e.preventDefault();
               history.push("/login");
             }}>
             Iniciar Sesión
@@ -60,7 +62,9 @@ const IndexRoute = () => {
             className={classes.button}
             size="medium"
             startIcon={<PersonAddIcon />}
+            href="/register"
             onClick={(e) => {
+              e.preventDefault();
               history.push("/register");
             }}>
             Registrarse
@@ -73,7 +77,9 @@ const IndexRoute = () => {
             className={classes.button}
             size="medium"
             startIcon={<i className="fas fa-beer"></i>}
+            href="/cervecerias"
             onClick={(e) => {
+              e.preventDefault();
               history.push("/cervecerias");
             }}>
             Cervecerias
