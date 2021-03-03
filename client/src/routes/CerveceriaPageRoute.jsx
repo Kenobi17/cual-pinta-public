@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import CerveceriaDataGrid from "../components/CerveceriaDataGrid";
 import AddReview from "../components/AddReview";
+import Review from "../components/Review";
 import CerveceriasAPI from "../apis/CerveceriasAPI";
 import ReviewsAPI from "../apis/ReviewsAPI";
 import Grid from "@material-ui/core/Grid";
@@ -14,6 +15,7 @@ const CerveceriaPageRoute = ({ isAuthenticated }) => {
   const { id } = useParams();
   const [hasReview, setHasReview] = useState({});
   const [cerveceriaData, setCerveceriaData] = useState({});
+  const [reseñas, setReseñas] = useState([]);
   useEffect(() => {
     if (isNaN(id) === true) {
       history.push("/cervecerias");
@@ -24,6 +26,7 @@ const CerveceriaPageRoute = ({ isAuthenticated }) => {
         typeof response.data.data.cerveceria === "undefined"
           ? history.push("/cervecerias")
           : setCerveceriaData(response.data.data);
+        setReseñas(response.data.data.reseñas);
         console.log(response.data.data);
       } catch (error) {
         console.log(error);
@@ -92,6 +95,11 @@ const CerveceriaPageRoute = ({ isAuthenticated }) => {
                 </span>
               </Typography>
             )}
+            <Grid item xs={12} style={{ marginTop: 35 }}>
+              {reseñas.map((reseña) => {
+                return <Review key={reseña.review_id} reseña={reseña} />;
+              })}
+            </Grid>
           </>
         ) : (
           <CircularProgress style={{ color: "#F6C90E" }} />
