@@ -14,6 +14,7 @@ import IndexRoute from "./routes/IndexRoute";
 import RegisterRoute from "./routes/RegisterRoute";
 import LoginRoute from "./routes/LoginRoute";
 import Header from "./components/Header";
+import Notifications from "react-notify-toast";
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const setAuth = (boolean) => {
@@ -38,6 +39,7 @@ function App() {
     <div className="App">
       <Router>
         <Header isAuthenticated={isAuthenticated} setAuth={setAuth} />
+        <Notifications options={{ zIndex: 200, top: "60px" }} />
         <Switch>
           <Route
             exact
