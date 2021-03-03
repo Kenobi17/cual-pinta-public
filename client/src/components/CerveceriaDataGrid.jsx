@@ -128,11 +128,7 @@ const CerveceriaDataGrid = ({ cerveceria }) => {
               <span>
                 <Typography gutterBottom variant="body1" component="h4">
                   Reseñas{" "}
-                  {!cerveceria.reviews ? (
-                    <></>
-                  ) : (
-                    <>({cerveceria.reviews.length})</>
-                  )}
+                  {!cerveceria.reviews ? <></> : <>({cerveceria.reviews})</>}
                 </Typography>
                 <Typography gutterBottom variant="caption" component="h5">
                   {!cerveceria.reviews ? (
@@ -223,11 +219,7 @@ const CerveceriaDataGrid = ({ cerveceria }) => {
               <span>
                 <Typography gutterBottom variant="body1" component="h4">
                   Reseñas{" "}
-                  {!cerveceria.reviews ? (
-                    <></>
-                  ) : (
-                    <>({cerveceria.reviews.length})</>
-                  )}
+                  {!cerveceria.reviews ? <></> : <>({cerveceria.reviews})</>}
                 </Typography>
                 <Typography gutterBottom variant="caption" component="h5">
                   {!cerveceria.reviews ? (
