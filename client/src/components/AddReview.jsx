@@ -3,6 +3,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import ReviewsAPI from "../apis/ReviewsAPI";
+import { notify } from "react-notify-toast";
 
 const AddReview = ({ cerveceria, addReseña }) => {
   const [inputsValues, setInputsValues] = useState({
@@ -34,8 +35,8 @@ const AddReview = ({ cerveceria, addReseña }) => {
         }
       );
       window.location.reload();
-    } catch (err) {
-      console.error(err.message);
+    } catch (error) {
+      notify.show(error.response.data, "error", 3500);
     }
   };
   return (

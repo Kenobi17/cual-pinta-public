@@ -37,7 +37,7 @@ const LoginForm = ({ setAuth }) => {
         setAuth(true);
       }
     } catch (error) {
-      notify.show(error.response.data, "error", 2000);
+      notify.show(error.response.data, "error", 3500);
     }
   };
 
