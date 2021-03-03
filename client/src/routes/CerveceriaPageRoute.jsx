@@ -13,7 +13,7 @@ import "../css/CerveceriaPage.css";
 const CerveceriaPageRoute = ({ isAuthenticated }) => {
   let history = useHistory();
   const { id } = useParams();
-  const [hasReview, setHasReview] = useState({});
+  const [checkForReview, setCheckForReview] = useState({});
   const [cerveceriaData, setCerveceriaData] = useState({});
   const [reseñas, setReseñas] = useState([]);
   useEffect(() => {
@@ -45,7 +45,7 @@ const CerveceriaPageRoute = ({ isAuthenticated }) => {
             },
           }
         );
-        setHasReview(response.data);
+        setCheckForReview(response.data.data);
       } catch (error) {
         console.log(error);
       }
@@ -59,9 +59,9 @@ const CerveceriaPageRoute = ({ isAuthenticated }) => {
         {cerveceriaData.cerveceria ? (
           <>
             <CerveceriaDataGrid cerveceria={cerveceriaData.cerveceria} />
-            {isAuthenticated && !hasReview ? (
+            {isAuthenticated && !checkForReview.hasReview ? (
               <AddReview cerveceria={cerveceriaData.cerveceria} />
-            ) : isAuthenticated && hasReview ? null : (
+            ) : isAuthenticated && checkForReview.hasReview ? null : (
               <Typography
                 variant="subtitle2"
                 component="h2"
