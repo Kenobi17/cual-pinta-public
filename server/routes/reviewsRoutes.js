@@ -30,7 +30,12 @@ router.post("/check", middleware.isAuthorized, async (req, res) => {
     );
     if (review.rows.length !== 0) {
       hasReview = true;
-      return res.json(hasReview);
+      return res.json({
+        data: {
+          hasReview: true,
+          review_id: review.rows[0].review_id,
+        },
+      });
     } else {
       hasReview = false;
       return res.json(hasReview);
