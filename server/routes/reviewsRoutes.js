@@ -90,7 +90,7 @@ router.delete("/delete", middleware.isAuthorized, async (req, res) => {
   try {
     const deleteReview = await db.query(
       "DELETE FROM reviews WHERE review_id = $1 AND user_id = $2 RETURNING *",
-      [req.body.review_id, req.user.id]
+      [req.headers.review_id, req.user.id]
     );
     if (deleteReview.rows.length === 0) {
       return res.json("Esta reseña no es tuya");
