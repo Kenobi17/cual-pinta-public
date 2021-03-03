@@ -4,7 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import ReviewsAPI from "../apis/ReviewsAPI";
 
-const AddReview = ({ cerveceria }) => {
+const AddReview = ({ cerveceria, addReseña }) => {
   const [inputsValues, setInputsValues] = useState({
     reviewBody: "",
     reviewRating: "1",
@@ -34,6 +34,7 @@ const AddReview = ({ cerveceria }) => {
         }
       );
       console.log(response.data);
+      window.location.reload();
     } catch (err) {
       console.error(err.message);
     }
