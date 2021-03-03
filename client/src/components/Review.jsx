@@ -31,7 +31,7 @@ const useStyles = makeStyles({
   },
 });
 
-const Review = ({ reseña }) => {
+const Review = ({ reseña, reviewId }) => {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
@@ -53,9 +53,11 @@ const Review = ({ reseña }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" style={{ color: "#961d1d" }}>
-          Eliminar
-        </Button>
+        {reseña.review_id === reviewId ? (
+          <Button size="small" style={{ color: "#961d1d" }}>
+            Eliminar
+          </Button>
+        ) : null}
       </CardActions>
     </Card>
   );

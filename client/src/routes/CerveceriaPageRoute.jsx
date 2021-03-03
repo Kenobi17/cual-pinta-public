@@ -97,7 +97,13 @@ const CerveceriaPageRoute = ({ isAuthenticated }) => {
             )}
             <Grid item xs={12} style={{ marginTop: 35 }}>
               {reseñas.map((reseña) => {
-                return <Review key={reseña.review_id} reseña={reseña} />;
+                return (
+                  <Review
+                    key={reseña.review_id}
+                    reseña={reseña}
+                    reviewId={checkForReview.review_id}
+                  />
+                );
               })}
             </Grid>
           </>
