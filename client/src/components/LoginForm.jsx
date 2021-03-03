@@ -4,7 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import authentication from "../apis/authentication";
-
+import { notify } from "react-notify-toast";
 const useStyles = makeStyles({
   button: {
     backgroundColor: "#f6c90e",
@@ -35,11 +35,9 @@ const LoginForm = ({ setAuth }) => {
       if (response.data.token) {
         localStorage.setItem("token", response.data.token);
         setAuth(true);
-      } else {
-        setAuth(false);
       }
     } catch (error) {
-      console.error(error.response.data);
+      notify.show(error.response.data, "error", 2000);
     }
   };
 
