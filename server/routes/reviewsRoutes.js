@@ -28,7 +28,7 @@ router.post("/check", middleware.isAuthorized, async (req, res) => {
       [req.user.id, req.body.brewery_id]
     );
     if (review.rows.length !== 0) {
-      return res.json({
+      return res.status(200).json({
         data: {
           hasReview: true,
           review_id: review.rows[0].review_id,
@@ -55,16 +55,19 @@ router.post("/new", middleware.isAuthorized, async (req, res) => {
       [req.user.id, req.body.brewery_id]
     );
     if (review.rows.length !== 0) {
-      return res.json("Ya has realizado una reseña sobre este lugar");
-    }
-    if (req.body.body.length < 20) {
-      return res.json("Tu reseña debe contener al menos 20 caracteres");
+      return res
+        .status(400)
+        .json("Ya has realizado una reseña sobre este lugar");
+    } else if (req.body.body.length < 20) {
+      return res
+        .status(400)
+        .json("Tu reseña debe contener al menos 20 caracteres");
     }
     const newReview = await db.query(
       "INSERT INTO reviews (user_id, brewery_id, body, rating) VALUES ($1, $2, $3, $4) RETURNING *",
       [req.user.id, req.body.brewery_id, req.body.body, req.body.rating]
     );
-    res.json(newReview.rows[0]);
+    res.status(200).json(newReview.rows[0]);
   } catch (error) {
     console.error(error.message);
     res.status(500).send("Error del servidor");
@@ -79,9 +82,9 @@ router.put("/update", middleware.isAuthorized, async (req, res) => {
       [req.body.body, req.body.rating, req.body.review_id, req.user.id]
     );
     if (updateReview.rows.length === 0) {
-      return res.json("Esta reseña no es tuya");
+      return res.status(401).json("Esta reseña no es tuya");
     }
-    res.json(updateReview.rows[0]);
+    res.status(200).json(updateReview.rows[0]);
   } catch (error) {
     console.error(error.message);
     res.status(500).send("Error del servidor");
@@ -96,9 +99,9 @@ router.delete("/delete", middleware.isAuthorized, async (req, res) => {
       [req.headers.review_id, req.user.id]
     );
     if (deleteReview.rows.length === 0) {
-      return res.json("Esta reseña no es tuya");
+      return res.status(401).json("Esta reseña no es tuya");
     }
-    res.json("Reseña eliminada");
+    res.status(200).json("Reseña eliminada");
   } catch (error) {
     console.error(error.message);
     res.status(500).send("Error del servidor");
