@@ -31,9 +31,24 @@ const useStyles = makeStyles({
   },
 });
 
-const Review = ({ reseña, reviewId }) => {
+const Review = ({ reseña, reviewId, ReviewsAPI }) => {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
+  const handleDelete = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await ReviewsAPI.delete("/delete", {
+        headers: {
+          token: localStorage.token,
+          review_id: reseña.review_id,
+        },
+      });
+      window.location.reload();
+      console.log(response.data);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
 
   return (
     <Card className={classes.root}>
@@ -54,7 +69,10 @@ const Review = ({ reseña, reviewId }) => {
       </CardContent>
       <CardActions>
         {reseña.review_id === reviewId ? (
-          <Button size="small" style={{ color: "#961d1d" }}>
+          <Button
+            onClick={handleDelete}
+            size="small"
+            style={{ color: "#961d1d" }}>
             Eliminar
           </Button>
         ) : null}

@@ -27,7 +27,6 @@ const CerveceriaPageRoute = ({ isAuthenticated }) => {
           ? history.push("/cervecerias")
           : setCerveceriaData(response.data.data);
         setReseñas(response.data.data.reseñas);
-        console.log(response.data.data);
       } catch (error) {
         console.log(error);
       }
@@ -102,6 +101,7 @@ const CerveceriaPageRoute = ({ isAuthenticated }) => {
                     key={reseña.review_id}
                     reseña={reseña}
                     reviewId={checkForReview.review_id}
+                    ReviewsAPI={ReviewsAPI}
                   />
                 );
               })}
