@@ -23,13 +23,11 @@ router.get("/user", middleware.isAuthorized, async (req, res) => {
 //CHECK IF USER ALREADY HAS A REVIEW
 router.post("/check", middleware.isAuthorized, async (req, res) => {
   try {
-    let hasReview;
     const review = await db.query(
       "SELECT * FROM reviews WHERE user_id = $1 AND brewery_id = $2",
       [req.user.id, req.body.brewery_id]
     );
     if (review.rows.length !== 0) {
-      hasReview = true;
       return res.json({
         data: {
           hasReview: true,
@@ -37,8 +35,11 @@ router.post("/check", middleware.isAuthorized, async (req, res) => {
         },
       });
     } else {
-      hasReview = false;
-      return res.json(hasReview);
+      return res.json({
+        data: {
+          hasReview: false,
+        },
+      });
     }
   } catch (error) {
     console.error(error.message);
