@@ -20,7 +20,7 @@ const AddReview = ({ cerveceria, addReseña }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await ReviewsAPI.post(
+      await ReviewsAPI.post(
         "/new",
         {
           brewery_id: cerveceria.brewery_id,
@@ -33,7 +33,6 @@ const AddReview = ({ cerveceria, addReseña }) => {
           },
         }
       );
-      console.log(response.data);
       window.location.reload();
     } catch (err) {
       console.error(err.message);

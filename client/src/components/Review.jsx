@@ -37,14 +37,13 @@ const Review = ({ reseña, reviewId, ReviewsAPI }) => {
   const handleDelete = async (e) => {
     e.preventDefault();
     try {
-      const response = await ReviewsAPI.delete("/delete", {
+      await ReviewsAPI.delete("/delete", {
         headers: {
           token: localStorage.token,
           review_id: reseña.review_id,
         },
       });
       window.location.reload();
-      console.log(response.data);
     } catch (err) {
       console.error(err.message);
     }
