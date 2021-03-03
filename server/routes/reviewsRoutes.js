@@ -57,6 +57,9 @@ router.post("/new", middleware.isAuthorized, async (req, res) => {
     if (review.rows.length !== 0) {
       return res.json("Ya has realizado una reseña sobre este lugar");
     }
+    if (req.body.body.length < 20) {
+      return res.json("Tu reseña debe contener al menos 20 caracteres");
+    }
     const newReview = await db.query(
       "INSERT INTO reviews (user_id, brewery_id, body, rating) VALUES ($1, $2, $3, $4) RETURNING *",
       [req.user.id, req.body.brewery_id, req.body.body, req.body.rating]
