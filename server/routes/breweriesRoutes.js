@@ -32,7 +32,7 @@ router.get("/:id", async (req, res) => {
       [id]
     );
     const reviews = await db.query(
-      "SELECT *, TO_CHAR(\"date\", 'DD/MM/YYYY') AS date FROM reviews r LEFT JOIN (SELECT first_name, last_name, user_id FROM users) u ON r.user_id = u.user_id WHERE brewery_id = $1",
+      "SELECT *, TO_CHAR(\"date\", 'DD/MM/YYYY') AS date FROM reviews r LEFT JOIN (SELECT first_name, last_name, user_id FROM users) u ON r.user_id = u.user_id WHERE brewery_id = $1 ORDER BY r.review_id DESC",
       [id]
     );
     res.status(200).json({
