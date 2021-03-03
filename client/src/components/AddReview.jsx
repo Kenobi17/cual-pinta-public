@@ -115,7 +115,7 @@ const AddReview = ({ cerveceria }) => {
           size="small"
           onClick={handleSubmit}
           startIcon={<i className="fas fa-beer"></i>}>
-          Listo
+          Enviar
         </Button>
       </form>
     </Grid>
