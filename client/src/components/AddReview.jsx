@@ -5,7 +5,7 @@ import Button from "@material-ui/core/Button";
 import ReviewsAPI from "../apis/ReviewsAPI";
 import { notify } from "react-notify-toast";
 
-const AddReview = ({ cerveceria, addReseña }) => {
+const AddReview = ({ cerveceria }) => {
   const [inputsValues, setInputsValues] = useState({
     reviewBody: "",
     reviewRating: "1",
