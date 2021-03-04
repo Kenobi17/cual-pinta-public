@@ -8,6 +8,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
+import Link from "@material-ui/core/Link";
 import LogoAppBar from "../assets/LogoAppBar.svg";
 
 const useStyles = makeStyles((theme) => ({
@@ -143,9 +144,13 @@ const Header = ({ isAuthenticated, setAuth }) => {
               <MenuItem onClick={() => handleClick("cervecerias")}>
                 Cervecerias
               </MenuItem>
-              <MenuItem onClick={() => handleClick("contacto")}>
-                Contacto
-              </MenuItem>
+              <Link
+                href="https://www.linkedin.com/in/matias-correa-4aa0441b1/"
+                style={{ color: "#000" }}
+                target="_blank"
+                underline="none">
+                <MenuItem>Contacto</MenuItem>
+              </Link>
             </Menu>
           </div>
         </Toolbar>
