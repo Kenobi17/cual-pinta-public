@@ -77,6 +77,11 @@ router.post("/new", middleware.isAuthorized, async (req, res) => {
 //UPDATE REVIEW ROUTE
 router.put("/update", middleware.isAuthorized, async (req, res) => {
   try {
+    if (req.body.body.length < 20) {
+      return res
+        .status(400)
+        .json("Tu reseña debe contener al menos 20 caracteres");
+    }
     const updateReview = await db.query(
       "UPDATE reviews SET body = $1, rating = $2 WHERE review_id = $3 AND user_id = $4 RETURNING *",
       [req.body.body, req.body.rating, req.body.review_id, req.user.id]
