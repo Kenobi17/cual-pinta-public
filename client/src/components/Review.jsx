@@ -6,6 +6,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Modal from "@material-ui/core/Modal";
+import EditReview from "./EditReview";
 import StarRating from "./StarRating";
 
 const getModalStyle = () => {
@@ -56,7 +57,7 @@ const useStyles = makeStyles({
   },
 });
 
-const Review = ({ reseña, reviewId, ReviewsAPI }) => {
+const Review = ({ reseña, reviewId, ReviewsAPI, breweryId }) => {
   const [modalStyle] = useState(getModalStyle);
   const [open, setOpen] = useState(false);
   const classes = useStyles();
@@ -83,12 +84,21 @@ const Review = ({ reseña, reviewId, ReviewsAPI }) => {
   };
   const body = (
     <div style={modalStyle} className={classes.paper}>
-      <Typography align="left" id="editar-reseña" variant="h5" component="h3">
+      <Typography
+        align="left"
+        id="editar-reseña"
+        variant="h5"
+        component="h3"
+        style={{ marginBottom: 20 }}>
         Editar reseña
       </Typography>
-      <p id="simple-modal-description">
-        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-      </p>
+      <EditReview
+        body={reseña.body}
+        rating={reseña.rating}
+        breweryId={breweryId}
+        reviewId={reseña.review_id}
+        id="simple-modal-description"
+      />
     </div>
   );
   return (
