@@ -102,6 +102,7 @@ const CerveceriaPageRoute = ({ isAuthenticated }) => {
                     reseña={reseña}
                     reviewId={checkForReview.review_id}
                     ReviewsAPI={ReviewsAPI}
+                    breweryId={cerveceriaData.cerveceria.brewery_id}
                   />
                 );
               })}
