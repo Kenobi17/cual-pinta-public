@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import Modal from "@material-ui/core/Modal";
 import StarRating from "./StarRating";
+
+const getModalStyle = () => {
+  const top = 50;
+  const left = 50;
+  return {
+    top: `${top}%`,
+    left: `${left}%`,
+    transform: `translate(-${top}%, -${left}%)`,
+  };
+};
 
 const useStyles = makeStyles({
   root: {
@@ -14,6 +25,9 @@ const useStyles = makeStyles({
     width: "100%",
     maxWidth: 500,
     margin: "auto",
+  },
+  content: {
+    overflowWrap: "break-word",
   },
   bullet: {
     display: "inline-block",
@@ -29,9 +43,22 @@ const useStyles = makeStyles({
     marginBottom: 12,
     color: "#F6C90E",
   },
+  paper: {
+    color: "#f6c90e",
+    position: "absolute",
+    maxWidth: 600,
+    width: "85%",
+    backgroundColor: "#000",
+    border: "1px solid #F6C90E",
+    boxShadow: "none",
+    outline: 0,
+    padding: 20,
+  },
 });
 
 const Review = ({ reseña, reviewId, ReviewsAPI }) => {
+  const [modalStyle] = useState(getModalStyle);
+  const [open, setOpen] = useState(false);
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
   const handleDelete = async (e) => {
@@ -48,10 +75,25 @@ const Review = ({ reseña, reviewId, ReviewsAPI }) => {
       console.error(err.message);
     }
   };
-
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const body = (
+    <div style={modalStyle} className={classes.paper}>
+      <Typography align="left" id="editar-reseña" variant="h5" component="h3">
+        Editar reseña
+      </Typography>
+      <p id="simple-modal-description">
+        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+      </p>
+    </div>
+  );
   return (
     <Card className={classes.root}>
-      <CardContent>
+      <CardContent className={classes.content}>
         <Typography
           className={classes.title}
           color="textSecondary"
@@ -68,12 +110,27 @@ const Review = ({ reseña, reviewId, ReviewsAPI }) => {
       </CardContent>
       <CardActions>
         {reseña.review_id === reviewId ? (
-          <Button
-            onClick={handleDelete}
-            size="small"
-            style={{ color: "#961d1d" }}>
-            Eliminar
-          </Button>
+          <>
+            <Button
+              onClick={handleDelete}
+              size="small"
+              style={{ color: "#961d1d" }}>
+              Eliminar
+            </Button>
+            <Button
+              onClick={handleOpen}
+              size="small"
+              style={{ color: "#00a12b" }}>
+              Editar
+            </Button>
+            <Modal
+              open={open}
+              onClose={handleClose}
+              aria-labelledby="editar-reseña"
+              aria-describedby="simple-modal-description">
+              {body}
+            </Modal>
+          </>
         ) : null}
       </CardActions>
     </Card>
