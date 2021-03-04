@@ -23,6 +23,7 @@ const RegisterForm = ({ setAuth }) => {
     lastName: "",
     email: "",
     password: "",
+    password2: "",
   });
   const handleChange = (e) => {
     const { value, name } = e.target;
@@ -31,15 +32,19 @@ const RegisterForm = ({ setAuth }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await authentication.post("/register", {
-        firstName: inputsValues.firstName,
-        lastName: inputsValues.lastName,
-        email: inputsValues.email,
-        password: inputsValues.password,
-      });
-      if (response.data.token) {
-        localStorage.setItem("token", response.data.token);
-        setAuth(true);
+      if (inputsValues.password !== inputsValues.password2) {
+        notify.show("Las contraseñas no coinciden", "error", 3500);
+      } else {
+        const response = await authentication.post("/register", {
+          firstName: inputsValues.firstName,
+          lastName: inputsValues.lastName,
+          email: inputsValues.email,
+          password: inputsValues.password,
+        });
+        if (response.data.token) {
+          localStorage.setItem("token", response.data.token);
+          setAuth(true);
+        }
       }
     } catch (error) {
       notify.show(error.response.data, "error", 3500);
@@ -93,6 +98,15 @@ const RegisterForm = ({ setAuth }) => {
             type="password"
             name="password"
             placeholder="Contraseña *"
+            className="registerInput"
+            minLength="8"
+          />
+          <input
+            onChange={handleChange}
+            value={inputsValues.password2}
+            type="password"
+            name="password2"
+            placeholder="Repetir contraseña *"
             className="registerInput"
             minLength="8"
           />
