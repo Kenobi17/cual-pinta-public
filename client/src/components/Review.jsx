@@ -8,6 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import Modal from "@material-ui/core/Modal";
 import EditReview from "./EditReview";
 import StarRating from "./StarRating";
+import { notify } from "react-notify-toast";
 
 const getModalStyle = () => {
   const top = 50;
@@ -72,8 +73,8 @@ const Review = ({ reseña, reviewId, ReviewsAPI, breweryId }) => {
         },
       });
       window.location.reload();
-    } catch (err) {
-      console.error(err.message);
+    } catch (error) {
+      notify.show(error.response.data, "error", 3500);
     }
   };
   const handleOpen = () => {
