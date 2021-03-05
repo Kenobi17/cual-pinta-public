@@ -117,6 +117,7 @@ const Header = ({ isAuthenticated, setAuth }) => {
             </IconButton>
             <Menu
               id="menu-appbar"
+              MenuListProps={{ style: { backgroundColor: "#f6c90e" } }}
               anchorEl={anchorEl}
               anchorOrigin={{
                 vertical: "top",
@@ -132,26 +133,38 @@ const Header = ({ isAuthenticated, setAuth }) => {
               {!isAuthenticated ? (
                 <div>
                   <MenuItem onClick={() => handleClick("login")}>
-                    <i className="fas fa-user"> Iniciar Sesión</i>
+                    <i className="fas fa-user">
+                      <span style={{ paddingLeft: 12 }}> Iniciar Sesión</span>
+                    </i>
                   </MenuItem>
                   <MenuItem onClick={() => handleClick("register")}>
-                    <i className="fas fa-user-plus"> Registrarse</i>
+                    <i className="fas fa-user-plus">
+                      <span style={{ paddingLeft: 6 }}> Registrarse</span>
+                    </i>
                   </MenuItem>
                 </div>
               ) : (
                 <MenuItem onClick={handleLogout}>
-                  <i className="fas fa-sign-out-alt"> Cerrar Sesión</i>
+                  <i className="fas fa-sign-out-alt">
+                    <span style={{ paddingLeft: 8 }}> Cerrar Sesión</span>
+                  </i>
                 </MenuItem>
               )}
               <MenuItem onClick={() => handleClick("cervecerias")}>
-                <i className="fas fa-beer"> Cervecerias</i>
+                <i className="fas fa-beer">
+                  <span style={{ paddingLeft: 12 }}> Cervecerias</span>
+                </i>
               </MenuItem>
               <Link
-                href="https://www.linkedin.com/in/matias-correa-4aa0441b1/"
+                href="https://www.instagram.com/cualpintaok/"
                 style={{ color: "#000" }}
                 target="_blank"
                 underline="none">
-                <MenuItem>Contacto</MenuItem>
+                <MenuItem>
+                  <i style={{ fontWeight: "800" }} className="fab fa-instagram">
+                    <span style={{ paddingLeft: 12 }}> Instagram</span>
+                  </i>
+                </MenuItem>
               </Link>
             </Menu>
           </div>
