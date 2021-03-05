@@ -132,17 +132,19 @@ const Header = ({ isAuthenticated, setAuth }) => {
               {!isAuthenticated ? (
                 <div>
                   <MenuItem onClick={() => handleClick("login")}>
-                    Iniciar Sesión
+                    <i className="fas fa-user"> Iniciar Sesión</i>
                   </MenuItem>
                   <MenuItem onClick={() => handleClick("register")}>
-                    Registrarse
+                    <i className="fas fa-user-plus"> Registrarse</i>
                   </MenuItem>
                 </div>
               ) : (
-                <MenuItem onClick={handleLogout}>Cerrar Sesión</MenuItem>
+                <MenuItem onClick={handleLogout}>
+                  <i className="fas fa-sign-out-alt"> Cerrar Sesión</i>
+                </MenuItem>
               )}
               <MenuItem onClick={() => handleClick("cervecerias")}>
-                Cervecerias
+                <i className="fas fa-beer"> Cervecerias</i>
               </MenuItem>
               <Link
                 href="https://www.linkedin.com/in/matias-correa-4aa0441b1/"
