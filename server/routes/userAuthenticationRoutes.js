@@ -1,7 +1,7 @@
 const router = require("express").Router(),
   tokenGenerator = require("../utils/tokenGenerator"),
   middleware = require("../middleware/middleware"),
-  db = require("../database/db"),
+  db = require("../database"),
   bcrypt = require("bcrypt");
 
 //REGISTER ROUTE

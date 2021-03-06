@@ -1,5 +1,5 @@
 const router = require("express").Router(),
-  db = require("../database/db"),
+  db = require("../database"),
   axios = require("axios");
 
 //GET ALL BREWERIES ROUTE

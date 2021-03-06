@@ -1,5 +1,5 @@
 const router = require("express").Router(),
-  db = require("../database/db"),
+  db = require("../database"),
   middleware = require("../middleware/middleware");
 
 //GET USER'S REVIEWS ROUTE
