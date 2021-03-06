@@ -25,7 +25,7 @@ const RegisterRoute = ({ setAuth }) => {
                   Crea tu cuenta
                 </Typography>
                 <Typography variant="h6" component="p" align="center">
-                  Y dejá tu opinión acerca de las mejores cervecerias de todo
+                  Y dejá tu opinión acerca de las mejores cervecerías de todo
                   Tucumán
                 </Typography>
               </div>

@@ -152,7 +152,7 @@ const Header = ({ isAuthenticated, setAuth }) => {
               )}
               <MenuItem onClick={() => handleClick("cervecerias")}>
                 <i className="fas fa-beer">
-                  <span style={{ paddingLeft: 12 }}> Cervecerias</span>
+                  <span style={{ paddingLeft: 12 }}> Cervecerías</span>
                 </i>
               </MenuItem>
               <Link

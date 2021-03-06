@@ -46,7 +46,7 @@ const LoginRoute = ({ setAuth }) => {
                   Iniciá sesión
                 </Typography>
                 <Typography variant="h6" component="p" align="center">
-                  Y compartí tu opinión acerca de las mejores cervecerias de
+                  Y compartí tu opinión acerca de las mejores cervecerías de
                   todo Tucumán
                 </Typography>
               </div>

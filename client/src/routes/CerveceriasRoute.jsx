@@ -31,7 +31,7 @@ const CerveceriasRoute = () => {
         <Grid container item xs={10} justify="center">
           <Grid item xs={12}>
             <Typography variant="h3" component="h1" align="center">
-              Cervecerias
+              Cervecerías
             </Typography>
           </Grid>
           <Grid item container xs={12} spacing={3}>
@@ -51,7 +51,7 @@ const CerveceriasRoute = () => {
                 <CircularProgress style={{ color: "#F6C90E" }} />
               ) : cervecerias.length === 0 ? (
                 <Typography variant="h6" component="h4" align="center">
-                  No se a encontrado ninguna cerveceria
+                  No se a encontrado ninguna cervecería
                 </Typography>
               ) : (
                 cervecerias.map((cerveceria) => {
