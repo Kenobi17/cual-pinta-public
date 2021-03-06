@@ -166,6 +166,17 @@ const Header = ({ isAuthenticated, setAuth }) => {
                   </i>
                 </MenuItem>
               </Link>
+              <Link
+                href="https://www.linkedin.com/in/matias-correa-4aa0441b1/"
+                style={{ color: "#000" }}
+                target="_blank"
+                underline="none">
+                <MenuItem>
+                  <i style={{ fontWeight: "800" }} className="fab fa-linkedin">
+                    <span style={{ paddingLeft: 12 }}> Contacto</span>
+                  </i>
+                </MenuItem>
+              </Link>
             </Menu>
           </div>
         </Toolbar>
