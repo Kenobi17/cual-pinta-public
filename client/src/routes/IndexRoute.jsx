@@ -31,9 +31,10 @@ const IndexRoute = () => {
           <Typography
             id="tituloHeader"
             align="center"
-            variant="h4"
+            variant="h5"
             component="h1">
-            Encontrá las mejores cervecerias de Tucumán
+            Ingresá y compartí tu opinión acerca de las mejores cervecerías de
+            Tucumán
           </Typography>
         </Grid>
         <Grid
@@ -82,7 +83,7 @@ const IndexRoute = () => {
               e.preventDefault();
               history.push("/cervecerias");
             }}>
-            Cervecerias
+            Cervecerías
           </Button>
         </Grid>
       </Grid>
