@@ -69,7 +69,7 @@ const Review = ({ reseña, reviewId, ReviewsAPI, breweryId }) => {
       await ReviewsAPI.delete("/delete", {
         headers: {
           token: localStorage.token,
-          reviewId: reviewId,
+          reviewid: reviewId,
         },
       });
       window.location.reload();
