@@ -33,7 +33,7 @@ const IndexRoute = () => {
             align="center"
             variant="h5"
             component="h1">
-            Ingresá y compartí tu opinión acerca de las mejores cervecerías de
+            Ingresa y compartí tu opinión acerca de las mejores cervecerías de
             Tucumán
           </Typography>
         </Grid>
